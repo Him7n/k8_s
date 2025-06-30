@@ -1,0 +1,33 @@
+service:
+  name: Kubernetes
+  identifier: Kubernetes
+  serviceDefinition:
+    type: Kubernetes
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: Docker_Hub_with_Pwd
+                imagePath: library/nginx
+                tag: <+input>
+              identifier: nginx
+              type: DockerRegistry
+      manifests:
+        - manifest:
+            identifier: nginx
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: harnessdocs2
+                  gitFetchType: Branch
+                  paths:
+                    - default-k8s-manifests/Manifests/Files/templates
+                  branch: main
+              valuesPaths:
+                - default-k8s-manifests/Manifests/Files/ng-values.yaml
+              skipResourceVersioning: false
+  gitOpsEnabled: false
