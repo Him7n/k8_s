@@ -1,0 +1,26 @@
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-from-mcr
+  labels:
+    app: nginx-mcr
+spec:
+  containers:
+  - name: nginx
+    # Specifies the image to use.
+    # mcr.microsoft.com is the Microsoft Container Registry.
+    # oss/nginx/nginx is the path to the Nginx image within MCR.
+    # latest is the tag for the image version.
+    image: mcr.microsoft.com/oss/nginx/nginx:latest
+    ports:
+    - containerPort: 80
+      name: http
+    # Optional: Define resource requests and limits for better resource management
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "100m"
+      limits:
+        memory: "128Mi"
+        cpu: "200m"

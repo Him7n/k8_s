@@ -1,0 +1,36 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wkwk
+  template:
+    metadata:
+      labels:
+        app: wkwk
+    spec:
+      containers:
+        - name: wkwk
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: html-volume
+              mountPath: /usr/share/nginx/html
+      initContainers:
+        - name: git-downloader
+          image: busybox
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              wget -O /html/index.html https://raw.githubusercontent.com/Him7n/him7n.github.io/refs/heads/main/index.html   
+          volumeMounts:
+            - name: html-volume
+              mountPath: /html
+      volumes:
+        - name: html-volume
+          emptyDir: {}
