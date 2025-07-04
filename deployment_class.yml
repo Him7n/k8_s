@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: <+pipeline.variables.replica>
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
