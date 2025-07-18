@@ -1,0 +1,23 @@
+service:
+  name: gitops_service
+  identifier: gitops_service
+  serviceDefinition:
+    type: Kubernetes
+    spec:
+      manifests:
+        - manifest:
+            identifier: gitops_identifier
+            type: ReleaseRepo
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: account.Do_not_Delete_Github_Himanshu_2
+                  gitFetchType: Branch
+                  paths:
+                    - deployment_class.yml
+                  branch: main
+                  repoName: k8_s
+  gitOpsEnabled: true
+  orgIdentifier: default
+  projectIdentifier: Do_not_delete_Himanshu_Sharma
