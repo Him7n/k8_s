@@ -16,7 +16,7 @@ spec:
         name: "nginx"
         ports:
         - containerPort: 80
-  replicas: 2
+  replicas: 0
   selector:
     matchLabels:
       app: "nginx"
