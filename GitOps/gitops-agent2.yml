@@ -4,15 +4,15 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-application-controller
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
   name: argocd-application-controller
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
 spec:
   ingress:
   - from:
@@ -31,15 +31,15 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: argocd-applicationset-controller
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-applicationset-controller
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: applicationset-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 spec:
   ingress:
   - ports:
@@ -60,15 +60,15 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-repo-server
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
   name: argocd-repo-server
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
 spec:
   ingress:
   - from:
@@ -103,15 +103,15 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-redis
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: redis
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
   name: argocd-redis
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
 spec:
   ingress:
   - from:
@@ -150,7 +150,7 @@ kind: ServiceAccount
 automountServiceAccountToken: true
 metadata:
   name: argocd-application-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-application-controller
@@ -166,7 +166,7 @@ kind: ServiceAccount
 automountServiceAccountToken: true
 metadata:
   name: argocd-applicationset-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-applicationset-controller
@@ -182,7 +182,7 @@ kind: ServiceAccount
 automountServiceAccountToken: true
 metadata:
   name: argocd-repo-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-repo-server
@@ -198,7 +198,7 @@ kind: ServiceAccount
 automountServiceAccountToken: false
 metadata:
   name: argocd-redis
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-redis
@@ -214,37 +214,37 @@ kind: ServiceAccount
 automountServiceAccountToken: true
 metadata:
   name: gitops-agent
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 ---
 # Source: gitops-helm/templates/upgrader/serviceaccount.yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: gitops-agent-upgrader
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent-upgrader
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent-upgrader
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 ---
 # Source: gitops-helm/charts/argo-cd/templates/argocd-configs/argocd-secret.yaml
 apiVersion: v1
 kind: Secret
 metadata:
   name: argocd-secret
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-secret
@@ -260,34 +260,34 @@ apiVersion: v1
 kind: Secret
 metadata:
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-agent-secret
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
   name: gitops-agent
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 type: Opaque
 stringData:
   GITOPS_AGENT_TOKEN: |
-    LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFdmdJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0JLZ3dnZ1NrQWdFQUFvSUJBUURWazhTOUJ3UUJpSTNPCjE0NTFMNWQya3F6MHdhdEJyNFhqMlpydHNIWVp3aGVveGI1UWhJbE5yN1RHa2RmbDh0REliL0VDVnhYUG04cFAKaTg4dFVUSmdpcXN5MUJPaktMc3pyYU1Tdjh6Rm5aYktOUHgwcDBuejR3U3lyczVXeStKVnBDb09QVzFYeWtkUAovTjlnS05Vb0J1b3Evdy8xMzJ1Zk5IbU15TzNBaVNTR1krc1N5VnN2Wk1SNkpwQjkzZGVTR2M3TmdsbkdYRHZjCnFLSXRXTzlzVXpYNC9vdDM0NCtScHR0ckRnNkhBRWtuT2pNZW5WVm0rU3RPY3ZHSVpCYnR5V3VaNGJERVEzZWcKTS9ULzZFb1hZODZGQzJUbStmbGJXRTg5Sm9DYWhiV1VIVEdCMnBVZHZDUldlOWpuNjB0Zk5nekVoV3JYR2xRawoxZ25EMXp0NUFnTUJBQUVDZ2dFQUVMTmZYUHRNSURxU0FZSHdOOUJOamJpN3pEVWdzOHJmM2dpZXRCdHFWaFZMCitGSGpmSW1yUlpIZkZ1L3NscVNTd3VSTitrV0pCUlR2a0V6UEdkZG02R1JhTFdmNy9uUXBsSjd0U05nS3BuYVkKMjBoTmFCUjB2MGR2T2ZHd0I0VjdOZ0NDUnJRZG9CSEhNSEFHU2puOGdRYkVENGRSQ05tUm9YOWU5SUtrWkx1dgo3UTBqajgrbVExazhVUDQvcUFIK3VwcUtKQU5uVVllZ1lhQWtMOU05RDlaQ0lTSjUzc3llWlQ2UGxuZkhnc1RsCjFQRmxxaTJpNmZEK0pkVlFzUXI0VVBlb1BiUXh2bW52Z1d4RkxSdTFhZ09pdkRpSm5iYjF6KzZXMkEwUDNJcFEKWktESVdqT20zRXZZK2FKNXhlbDE4MzRPbmdVNkcwYkVadTBLc0NXeUlRS0JnUUQrQWtSQmhsbjRPckpPem9MZwo3akUzNDB4NjZVSGxCR0lsQnQyOWxobmM1bU45SXhjemlCWXprTzdGaHJmYUxVWVpZUlRLS0pTN1VTTGJTYU9qCndEV1JFd3lWOURVSzgrcjBnRDVIalQ1elpGRkdDZTVaZldsYlZDQ0dyUXVESTJmOFZCYUxGdnlmcWZpTFZNeXUKYzFSWlZURmNVRFZzTlNnSnJVVWlLOU5IL1FLQmdRRFhRRjJUUVRXenUzbHRxcFFxM28yZGZQdnFLUXVTTHluWgpvTmtXNFVZNHM0ZGlyWUtlVHc2OWRFUVZQYmhoKzBKM040UENva2M1T21BTW13aDFkaExRUWFVcGtiekxQOU9yCnI4WHNwNXF4YWZ5TWpSRVkwaVFLTitNRm04eXFkZm1jSVNsNEpNd2ZOM3ZNcjNRTW9VRC9VQTNYbE50MkVMT3AKL3MzTlFpUWtMUUtCZ1FERFNWYlUwY2hHRWtxWVVDbExhWldwbERWdW9mc3BhZzlTekU2YXZkWXdnV2lvQXR5SgpuKzBCeEVIdTF6NXVuVFF4dXZQUzRSUklWMzdtL1Z5MFBzaHdPeWNIK3ZMMDhzY0hKN202SlJ1SWQrNE1YUUpGCkJ5aURNTkM0K2ozSm11VU5tRkNrcXcyYWE0Rk5EZXMzakMralp0NUdUTnhsenhCek1DWGd1YlQ4dVFLQmdRQy8KMGdGUjcrUE9ocnhBaWFtK3hsUEhUQkVtN0dyK1cvOWNqS1hKYVBudUg3Yi9yZ1pmMDY0Y0VWZDI0bWpGRUdkNwozRUlVR2crRXBVdmhEK3VxMlkwTWYrT1N0dWhhN0VkU2tiSzlJZU9PUlJnbG5MVG12S1lYWVJSejlCS2d1YisyCmJpc0pnU2xTakZ4TDNQTjdLZHpGYVc3Y2RqQlk5NnRVUzlqVkdTTWlCUUtCZ0F3UEtxbkIxa1ZwK2R5aDNGczAKUms3LzJoZjBRTmM1MkM1WVdEWEVxVTFxSisxL2ZXQ1U3Sk1HV0U3dXVTbDFzSW5NOHJneFR6M3BwNW42VTNPVApSeEZjYUhYd3JxOWpFQnYyS3RHL0kveDVxRk1GS05YQjI2bXpNcXVHWHFEMVVWaE8vN0ovZW1yRjVUWmVCQmNOCm1RVDZpZnQvaHEySWpoSVhtVHRQelBxbQotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
+    LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFdmdJQkFEQU5CZ2txaGtpRzl3MEJBUUVGQUFTQ0JLZ3dnZ1NrQWdFQUFvSUJBUUN0U05SMXlPNDJVVDZNCjhyVW55aDkxZ0FtbGs4MGhyUHYyVXpyYWczNWNKOStKdWNuYjR6SHA0MkJLcEdLNmsrOW5vbFFnQTNVbW9YankKOFRPdlM4MHd4allicVBBUTBFem5tLzBNSlVIdHlWdURPUzlRTGxjWWNEd29YcXVSVkNNeWxrVGRvczZpN1VBawpaK2YvM2VtYjVoVWNsUitBWk5RcHYvY1RURFoyMnpPKzlnOUtBVmJEbm5uTi92aFVEbVJyNUs3MFUycVYxTFRGCnU5WHVoU1o4cGkzOU5FbjQ1V0FnK3VVWVA3bDFEV2hHazZtaHFCTnJOaGFGd1NranNjd1ZGaEpMbURKL1R0aDgKS0VFSGYwZU9DblJHUzNiakJBTm5vYllsUWU5L2QyOU8rYkVMd2ZsUzhkWVI0cWJ2UXRvWktJdTR1aGRXRHh3NApVVkxaU2lSMUFnTUJBQUVDZ2dFQkFKa251Y0N3NnZwUExIM2ZOb1lJZTIyYTBPdnJpbTZ0T2JVcE11ZFhPU095CmlqeHNYU0ZmMlFuajBZT25ieXVBL1NRWHNVcnFRMnoxWXJVMndudTQvNDZRWWRwb29tWDU5VDd2KytQME9pVTAKeHhGZ1JaVVVvQjRWZE5ZcGRuSm9id09URlNMZmRzdEI3bU0vQXlwK3RLNzUyTWIrZG0xQXNOU0Z1cGJ2MFdPUwpQY3BDay9pU3JiSFpRNlVZWUVYTFl3SjF0c1kvd2EwVERDZjlNMXh6dGJqWnBNcGxnakFZNDBGMkZ3SndZN2ZTCkpjOVJPZG1uNVE2MHVjMGRYTnF3eWRlVVBwcnB0SEJPZldCd0xnRC9EK003SjRZajdDV0ZkNXFLWWdYY0U4RUUKRlpRK014bzNvRm5WYnNMbUlqWXA2ekZDMlFjdVZiUWVZRGhKanhhWlVnRUNnWUVBeTB5cW5PbmlHcTg5TnVHeApWR0ZIRTlza2dhVURZWk5EREpBSjIxYnhkVWhDVTFNMlFBV1Vhd1FXejNUZm13dE8zZzdEVXRMU1Z2Ry92eDRNClR1ZXNnY2llUjlTR0svaWdQcG5FS2lTb1RkQTV5Q0J3clJVdkkwbXZST3AvM1ZtYWxjOXZObjVCK1QzVzZVWHUKVGJ4US9UUjE4ZDFFQnVOR09qbUd5bzBsb1ZVQ2dZRUEyalJRRmhrcXlVcTF4bUxzd2RDdHRvSWNIZGRvTHlOMwpGTUpOZjRJYUVzVFhzV3VZWjAxNjF4NjVPdXRoeWVqZzcwdlkvdzdBaHlVbGVuME1RMTRHeW1CcTVNcTVFaXJQCi9QRFlVRXpWbDcyRTBmbEtQWGVOMjBwdlJEeXhoRTlOS3BIU1FYTXFOck81bW1XQkswNENmZi9wek9LNjFENG4KNjRlaG5CMDQ5cUVDZ1lFQWhoZTBkVGxEUEt5WGFNcW1wMnhlY0hkYjlmTThickN1U2V2N3hHUHRjWmxPdmgwbApyRWJCNVhCV0IxSWtadVNuaVlvZFJWVHZEZy80bEh1aVRLMDh1SUgxL0pUdVJyU0FKYXBRbkNkL3A0dVBnVFA4CmZmMTZFUUY2REsvTDFObFVRRG9KTmQxRGNMMWNNcE5Bb3A5eW9BQnBSelhWdCtGU29mYnR0RTR6SXQwQ2dZQlQKNkFQWHk0dXhaY0lxYkVYZ2JZOHUvQzgxcG14UW5CR2hjT24rR3hoTm1WWGJ5cVVMTERjTlc2b2Nwd0N1ZEpkeQpUVGMvTlB3QnU5NENrTzFUUm1mVUVHbHFXeTM1ZDI4Tk04dnFiUEZCYlVZU3ZBcTVRaXpSWTNrUHcwcjd0c2JVCmxNaEdGTFBwM3dpQy8zOUJHTGxLbkVyYVYyRkNWamhoa0lFcmwrMGNvUUtCZ0dsMWw0MSs3UGRZeU9GUUc5OHEKNXFYa09tajZLNG1SVU1PYlpIOTE2cnM3eWM2YmdOL3RFRFFRRHBjQzZzcXRJT3pTQnZBSFIzWS91SytYWjN3ZgpSN1pUWkJQaW5KcGJzSzRNeVpaQTJhOVE0Vy84SENwVGgwUGZMbnFnc3JZeWVmbkhDOHY1TjYvTS90Z0cvMFUvCkkxM3c2NVl6Rld3SmN1UUJoUUZVVEM1eAotLS0tLUVORCBSU0EgUFJJVkFURSBLRVktLS0tLQo=
 ---
 # Source: gitops-helm/templates/gitops-agent/secret.yaml
 apiVersion: v1
 kind: Secret
 metadata:
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-agent-ssh
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
   name: gitops-agent-mtls
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 type: Opaque
 data:
   client.crt: |
@@ -299,7 +299,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-cm
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-cm
@@ -327,7 +327,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-cmd-params-cm
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-cmd-params-cm
@@ -379,7 +379,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-gpg-keys-cm
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-gpg-keys-cm
@@ -393,7 +393,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-rbac-cm
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-rbac-cm
@@ -413,7 +413,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-ssh-known-hosts-cm
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-ssh-known-hosts-cm
@@ -443,7 +443,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-tls-certs-cm
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-tls-certs-cm
@@ -457,7 +457,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: argocd-redis-health-configmap
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-redis
@@ -498,7 +498,7 @@ data:
 apiVersion: v1
 data:
   GITOPS_ACCOUNT_IDENTIFIER: 1bvyLackQK-Hapk25-Ry4w
-  GITOPS_AGENT_IDENTIFIER: himanqaagent
+  GITOPS_AGENT_IDENTIFIER: himanagenttest03
   GITOPS_ORG_IDENTIFIER: 
   GITOPS_PROJECT_IDENTIFIER: 
   GITOPS_SERVICE_HTTP_TLS_ENABLED: "false"
@@ -511,7 +511,6 @@ data:
   GITOPS_AGENT_ENABLE_RECONCILE: "true"
   GITOPS_AGENT_RECONCILE_INTERVAL: "100"
   GITOPS_AGENT_DISCOVER_APPLICATION_PODS_DURATION_IN_SECS: "120"
-  GITOPS_AGENT_APPSET_RECONCILE_ENABLE: "false"
   LOG_LEVEL: debug
   GITOPS_AGENT_FETCH_TYPE: "POLLER"
   GITOPS_ARGOCD_REPO: argocd-repo-server
@@ -526,32 +525,31 @@ data:
   GITOPS_AGENT_NUM_FETCHERS: "1"
   GITOPS_AGENT_NUM_PROCESSORS: "1"
   GITOPS_AGENT_NUM_RESPONDERS: "1"
-  FIPS_ENABLED: "false"
   GITOPS_AGENT_ENABLE_RECONCILE_MEMORY_OPTIMIZATION: "true"
   GITOPS_AGENT_MAPPING_TIMEOUT_SECONDS: "60"
   GITOPS_AGENT_SELF_HEAL_SYNC_FILTER_OUT: "true"
 kind: ConfigMap
 metadata:
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent-cm
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
   name: gitops-agent
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 ---
 # Source: gitops-helm/templates/upgrader/harness-upgrader-cm.yaml
 apiVersion: v1
 data:
   UPGRADER_GITOPS_ACCOUNT_IDENTIFIER: 1bvyLackQK-Hapk25-Ry4w
-  UPGRADER_GITOPS_AGENT_IDENTIFIER: himanqaagent
+  UPGRADER_GITOPS_AGENT_IDENTIFIER: himanagenttest03
   UPGRADER_GITOPS_ORG_IDENTIFIER: 
   UPGRADER_GITOPS_PROJECT_IDENTIFIER: 
   UPGRADER_MODE: GitopsAgent
-  UPGRADER_NAMESPACE: qa-himanshu-test
+  UPGRADER_NAMESPACE: himanshu-test
   UPGRADER_WORKLOAD_NAME: gitops-agent
   UPGRADER_CONTAINER_NAME: gitops-agent
   UPGRADER_GITOPS_AGENT_HTTP_TARGET: https://qa.harness.io/prod1/gitops
@@ -560,7 +558,7 @@ data:
 kind: ConfigMap
 metadata:
   name: gitops-agent-upgrader
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
 ---
 # Source: gitops-helm/charts/argo-cd/templates/crds/crd-application.yaml
 apiVersion: apiextensions.k8s.io/v1
@@ -24131,15 +24129,15 @@ spec:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: argocd-application-controller-qa-himanshu-test
+  name: argocd-application-controller-himanshu-test
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-application-controller
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 rules:
   - apiGroups:
     - '*'
@@ -24156,15 +24154,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: argocd-repo-server-qa-himanshu-test
+  name: argocd-repo-server-himanshu-test
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-repo-server
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 rules:
   - apiGroups:
     - '*'
@@ -24181,15 +24179,15 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: himan-qa-agent-agent
+  name: himan-agent-test-03-agent
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 rules:
   - apiGroups:
       - '*'
@@ -24247,74 +24245,74 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: argocd-application-controller-qa-himanshu-test
+  name: argocd-application-controller-himanshu-test
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-application-controller
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: application-controller
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: argocd-application-controller-qa-himanshu-test
+  name: argocd-application-controller-himanshu-test
 subjects:
 - kind: ServiceAccount
   name: argocd-application-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 ---
 # Source: gitops-helm/templates/argocd-repo-server/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: argocd-repo-server-qa-himanshu-test
+  name: argocd-repo-server-himanshu-test
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: argocd-repo-server
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: repo-server
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: argocd-repo-server-qa-himanshu-test
+  name: argocd-repo-server-himanshu-test
 subjects:
 - kind: ServiceAccount
   name: argocd-repo-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 ---
 # Source: gitops-helm/templates/gitops-agent/clusterrolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: himan-qa-agent-agent
+  name: himan-agent-test-03-agent
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: himan-qa-agent-agent
+  name: himan-agent-test-03-agent
 subjects:
 - kind: ServiceAccount
   name: gitops-agent
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 ---
 # Source: gitops-helm/charts/argo-cd/templates/argocd-application-controller/role.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: argocd-application-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-application-controller
@@ -24367,7 +24365,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: argocd-applicationset-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-applicationset-controller
@@ -24464,7 +24462,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: argocd-repo-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-repo-server
@@ -24480,7 +24478,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: argocd-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-server
@@ -24530,15 +24528,15 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: gitops-agent
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 rules:
 - apiGroups:
   - ""
@@ -24624,15 +24622,15 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: gitops-agent-upgrader
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent-upgrader
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent-upgrader
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 rules:
   - apiGroups:
     - batch
@@ -24665,7 +24663,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: argocd-application-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-application-controller
@@ -24681,14 +24679,14 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: argocd-application-controller
-    namespace: qa-himanshu-test
+    namespace: himanshu-test
 ---
 # Source: gitops-helm/charts/argo-cd/templates/argocd-applicationset/rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: argocd-applicationset-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-applicationset-controller
@@ -24704,14 +24702,14 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: argocd-applicationset-controller
-    namespace: qa-himanshu-test
+    namespace: himanshu-test
 ---
 # Source: gitops-helm/charts/argo-cd/templates/argocd-repo-server/rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: argocd-repo-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-repo-server
@@ -24727,14 +24725,14 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argocd-repo-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 ---
 # Source: gitops-helm/charts/argo-cd/templates/argocd-server/rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: argocd-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-server
@@ -24750,22 +24748,22 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argocd-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 ---
 # Source: gitops-helm/templates/gitops-agent/rolebinding.yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: gitops-agent
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -24773,22 +24771,22 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: gitops-agent
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 ---
 # Source: gitops-helm/templates/upgrader/rolebinding.yaml
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: gitops-agent-upgrader
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent-upgrader
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent-upgrader
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 roleRef:
   kind: Role
   name: gitops-agent-upgrader
@@ -24796,14 +24794,14 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: gitops-agent-upgrader
-    namespace: "qa-himanshu-test"
+    namespace: "himanshu-test"
 ---
 # Source: gitops-helm/charts/argo-cd/templates/argocd-applicationset/metrics.yaml
 apiVersion: v1
 kind: Service
 metadata:
   name: argocd-applicationset-controller-metrics
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-metrics
@@ -24828,7 +24826,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: argocd-applicationset-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-applicationset-controller
@@ -24852,7 +24850,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: argocd-repo-server-metrics
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-repo-server-metrics
@@ -24885,7 +24883,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v2.14.13"
   name: argocd-repo-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
 spec:  
   ports:
   - name: tcp-repo-server
@@ -24901,7 +24899,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: argocd-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-server
@@ -24931,7 +24929,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: argocd-redis
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-redis
@@ -24954,15 +24952,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gitops-agent-metrics
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent-metrics
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 spec:
   type: ClusterIP
   ports:
@@ -24979,7 +24977,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argocd-applicationset-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-applicationset-controller
@@ -24998,7 +24996,7 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 1cc51bc44a2e92a3b45f32e8b004f58c296ce760a771e8807c5aa3f40986dda4
+        checksum/cmd-params: 5c8ebd4012b02aa6de91ed669c86bfdb1e7a195fe20a065d33b4fff1d9dee313
       labels:
         helm.sh/chart: argo-cd-7.8.27
         app.kubernetes.io/name: argocd-applicationset-controller
@@ -25251,7 +25249,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argocd-repo-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-repo-server
@@ -25270,8 +25268,8 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 1cc51bc44a2e92a3b45f32e8b004f58c296ce760a771e8807c5aa3f40986dda4
-        checksum/cm: 4b1b51f9a94c296d2e3a8d0c9db3dc01f663557507cdfa4407bef8e683a08164
+        checksum/cmd-params: 5c8ebd4012b02aa6de91ed669c86bfdb1e7a195fe20a065d33b4fff1d9dee313
+        checksum/cm: 3a8d7cce91a295cd4cdbcaaa6a5472f63b29cadefc8270b0e916e1c24612f62c
       labels:
         helm.sh/chart: argo-cd-7.8.27
         app.kubernetes.io/name: argocd-repo-server
@@ -25687,7 +25685,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argocd-server
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-server
@@ -25706,8 +25704,8 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 1cc51bc44a2e92a3b45f32e8b004f58c296ce760a771e8807c5aa3f40986dda4
-        checksum/cm: 4b1b51f9a94c296d2e3a8d0c9db3dc01f663557507cdfa4407bef8e683a08164
+        checksum/cmd-params: 5c8ebd4012b02aa6de91ed669c86bfdb1e7a195fe20a065d33b4fff1d9dee313
+        checksum/cm: 3a8d7cce91a295cd4cdbcaaa6a5472f63b29cadefc8270b0e916e1c24612f62c
       labels:
         helm.sh/chart: argo-cd-7.8.27
         app.kubernetes.io/name: argocd-server
@@ -26138,7 +26136,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: argocd-redis
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-redis
@@ -26231,15 +26229,15 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: gitops-agent
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 spec:
   replicas: 1
   revisionHistoryLimit: 
@@ -26250,15 +26248,15 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/secrets: 7ddecb5ccda8b8b53ad519d0d1ee2bfb12445d85f603115f9d98d325f485fd54
+        checksum/secrets: 36437f04d9b9fe8c1c7527eb5ebc55079b3ad62ce2442fe74f22ddbb00ab99f7
       labels:
-        helm.sh/chart: gitops-helm-1.1.26
+        helm.sh/chart: gitops-helm-1.1.24
         app.kubernetes.io/name: harness-gitops-agent
         app.kubernetes.io/instance: argocd
         app.kubernetes.io/component: gitops-agent
         app.kubernetes.io/managed-by: Helm
         app.kubernetes.io/part-of: harness-gitops
-        app.kubernetes.io/version: "v0.99.0"
+        app.kubernetes.io/version: "v0.97.2"
     spec:
       terminationGracePeriodSeconds: 30
       serviceAccountName: gitops-agent
@@ -26266,7 +26264,7 @@ spec:
       - command:
           - /app/agent
         name: gitops-agent
-        image: docker.io/harness/gitops-agent:v0.99.0
+        image: docker.io/harness/gitops-agent:v0.97.2
         imagePullPolicy: Always
         envFrom:
           - configMapRef:
@@ -26408,7 +26406,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: argocd-application-controller
-  namespace: qa-himanshu-test
+  namespace: himanshu-test
   labels:
     helm.sh/chart: argo-cd-7.8.27
     app.kubernetes.io/name: argocd-application-controller
@@ -26428,8 +26426,8 @@ spec:
   template:
     metadata:
       annotations:
-        checksum/cmd-params: 1cc51bc44a2e92a3b45f32e8b004f58c296ce760a771e8807c5aa3f40986dda4
-        checksum/cm: 4b1b51f9a94c296d2e3a8d0c9db3dc01f663557507cdfa4407bef8e683a08164
+        checksum/cmd-params: 5c8ebd4012b02aa6de91ed669c86bfdb1e7a195fe20a065d33b4fff1d9dee313
+        checksum/cm: 3a8d7cce91a295cd4cdbcaaa6a5472f63b29cadefc8270b0e916e1c24612f62c
       labels:
         helm.sh/chart: argo-cd-7.8.27
         app.kubernetes.io/name: argocd-application-controller
@@ -26782,15 +26780,15 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: gitops-agent-upgrader
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   labels:
-    helm.sh/chart: gitops-helm-1.1.26
+    helm.sh/chart: gitops-helm-1.1.24
     app.kubernetes.io/name: harness-gitops-agent-upgrader
     app.kubernetes.io/instance: argocd
     app.kubernetes.io/component: gitops-agent-upgrader
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/part-of: harness-gitops
-    app.kubernetes.io/version: "v0.99.0"
+    app.kubernetes.io/version: "v0.97.2"
 spec:
   schedule: "0 */4 * * *"
   concurrencyPolicy: Forbid
@@ -26843,7 +26841,7 @@ kind: ServiceAccount
 automountServiceAccountToken: true
 metadata:
   name: argocd-redis-secret-init
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   annotations:
     "helm.sh/hook": pre-install,pre-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation
@@ -26872,7 +26870,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v2.14.13"
   name: argocd-redis-secret-init
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
 rules:
   - apiGroups:
       - ""
@@ -26905,7 +26903,7 @@ metadata:
     app.kubernetes.io/part-of: argocd
     app.kubernetes.io/version: "v2.14.13"
   name: argocd-redis-secret-init
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -26919,7 +26917,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: argocd-redis-secret-init
-  namespace: "qa-himanshu-test"
+  namespace: "himanshu-test"
   annotations:
     "helm.sh/hook": pre-install,pre-upgrade
     "helm.sh/hook-delete-policy": before-hook-creation
